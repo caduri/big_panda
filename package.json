@@ -1,11 +1,18 @@
 {
-    "name": "big_panda",
-    "description": "This example is so cool.",
-    "main": "server.js",
-    "dependencies": {
-        "express": "~4.0.0",
-        "request": "~2.59.0",
-        "async": "~1.4.0",
-        "morgan": "~1.2.2"
-    }
+  "name": "big_panda",
+  "description": "This example is so cool.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+      "express": "~4.0.0",
+      "request": "~2.59.0",
+      "async": "~1.4.0",
+      "morgan": "~1.2.2"
+  },
+  "author": "Caduri Katzav",
+  "engines": {
+    "node": "0.12.7"
+  }
 }
