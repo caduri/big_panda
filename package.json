@@ -2,6 +2,9 @@
     "name": "big_panda",
     "main": "server.js",
     "dependencies": {
-        "express": "~4.0.0"
+        "express": "~4.0.0",
+        "request": "~2.59.0",
+        "async": "~1.4.0",
+        "morgan": "~1.2.2"
     }
 }

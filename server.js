@@ -1,39 +1,24 @@
-// call the packages we need
-var express    = require('express');        // call express
-var app        = express();                 // define our app using express
+var express    = require('express');
+var app        = express();
+var morgan     = require('morgan');
 var github     = require('./github')
 
-var port = process.env.PORT || 8080;        // set our port
+var port = process.env.PORT || 8080;
 
-// ROUTES FOR OUR API
-// =============================================================================
+app.use(express.static(__dirname + '/public'));
+app.use(morgan('dev'));
+
 var router = express.Router();
 
-router.get('/', function(req, res) {
-  res.json({
-    "status_url": "/status",
-    "messages_url": "/messages",
-    "last_message_url": "/last-message"
-  });
+router.get('/github', function(req, res) {
+  github.getGithubStatus(res);
 });
 
-router.get('/status', function(req, res) {
-  github.redirectToGithub(res, "status.json");
+app.get('/', function(req, res) {
+  res.sendfile('./public/index.html');
 });
 
-router.get('/messages', function(req, res) {
-  github.redirectToGithub(res, "messages.json");
-});
-
-router.get('/last-message', function(req, res) {
-  github.redirectToGithub(res, "last-message.json");
-});
-
-// REGISTER OUR ROUTES -------------------------------
-// all of our routes will be prefixed with /
 app.use('/', router);
 
-// START THE SERVER
-// =============================================================================
 app.listen(port);
-console.log('Magic happens on port ' + port);
+console.log('Big Panda excersize starts on port ' + port);
