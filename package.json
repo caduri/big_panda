@@ -1,5 +1,6 @@
 {
     "name": "big_panda",
+    "description": "This example is so cool.",
     "main": "server.js",
     "dependencies": {
         "express": "~4.0.0",
